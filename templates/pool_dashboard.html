@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dahlmanns Oasis</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      background: #f0f9ff;
+    }
+    h1 {
+      text-align: center;
+      color: #0369a1;
+    }
+    .section {
+      margin: 2rem auto;
+      max-width: 800px;
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    #current-status {
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dahlmanns Oasis</h1>
+
+  <div class="section" id="current-status">
+    <h2>Aktueller Status</h2>
+    <p><strong>Pool:</strong> <span id="pool-temp">–</span> °C</p>
+    <p><strong>Solar:</strong> <span id="solar-temp">–</span> °C</p>
+    <p><strong>Pumpe:</strong> <span id="pump-status">–</span></p>
+    <p><strong>Ventil:</strong> <span id="valve-status">–</span></p>
+  </div>
+
+  <div class="section">
+    <h2>Temperaturverlauf</h2>
+    <canvas id="tempChart"></canvas>
+  </div>
+
+  <script>
+    async function loadStatus() {
+      const res = await fetch('/pool-log');
+      const data = await res.json();
+      if (!Array.isArray(data)) return;
+
+      const latest = data[data.length - 1];
+      document.getElementById('pool-temp').textContent = latest.temp_pool.toFixed(1);
+      document.getElementById('solar-temp').textContent = latest.temp_solar.toFixed(1);
+      document.getElementById('pump-status').textContent = latest.pump;
+      document.getElementById('valve-status').textContent = latest.valve;
+
+      const times = data.map(e => new Date(e.logged_at).toLocaleTimeString());
+      const poolTemps = data.map(e => e.temp_pool);
+      const solarTemps = data.map(e => e.temp_solar);
+
+      const ctx = document.getElementById('tempChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: times,
+          datasets: [
+            {
+              label: 'Pool Temperatur (°C)',
+              data: poolTemps,
+              borderColor: '#3b82f6',
+              fill: false
+            },
+            {
+              label: 'Solar Temperatur (°C)',
+              data: solarTemps,
+              borderColor: '#f97316',
+              fill: false
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: false
+            }
+          }
+        }
+      });
+    }
+
+    loadStatus();
+  </script>
+</body>
+</html>

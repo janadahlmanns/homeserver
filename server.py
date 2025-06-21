@@ -87,7 +87,7 @@ def rebuy_dashboard():
     return render_template("rebuy_dashboard.html", items=sorted_items)
 
 def esp_logger():
-    log_file = "esp32_log.jsonl"
+    log_file = "pool_log.jsonl"
     status_url = "http://192.168.178.91/status"
 
     while True:
@@ -104,6 +104,20 @@ def esp_logger():
             print("⚠️ ESP logging error:", e)
 
         time.sleep(30)  # wait 30 seconds
+
+@app.route("/pool-log")
+def pool_log():
+    log_file = "pool_log.jsonl"
+    if os.path.exists(log_file):
+        with open(log_file, "r") as f:
+            lines = f.readlines()
+            entries = [json.loads(line.strip()) for line in lines if line.strip()]
+        return jsonify(entries)
+    return jsonify({"error": "No pool log found"}), 404
+
+@app.route("/pool-dashboard")
+def pool_dashboard():
+    return render_template("pool_dashboard.html")
 
 if __name__ == "__main__":
     threading.Thread(target=esp_logger, daemon=True).start()
