@@ -4,6 +4,10 @@ import os
 from datetime import datetime
 import pytz
 import uuid
+import threading
+import time
+import requests
+
 
 app = Flask(__name__, template_folder="templates")
 ITEMS_FILE = "pending_items.json"
@@ -82,5 +86,26 @@ def rebuy_dashboard():
     sorted_items = sorted(data["items"], key=lambda x: x["timestamp"], reverse=True)
     return render_template("rebuy_dashboard.html", items=sorted_items)
 
+def esp_logger():
+    log_file = "esp32_log.jsonl"
+    status_url = "http://192.168.178.91/status"
+
+    while True:
+        try:
+            response = requests.get(status_url, timeout=5)
+            data = response.json()
+            data["logged_at"] = datetime.now(BERLIN).isoformat()
+
+            with open(log_file, "a") as f:
+                f.write(json.dumps(data) + "\n")
+
+            print("✅ ESP status logged:", data)
+        except Exception as e:
+            print("⚠️ ESP logging error:", e)
+
+        time.sleep(30)  # wait 30 seconds
+
 if __name__ == "__main__":
+    threading.Thread(target=esp_logger, daemon=True).start()
     app.run(host="0.0.0.0", port=5000)
+
