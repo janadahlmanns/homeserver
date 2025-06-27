@@ -1,3 +1,116 @@
 {
-  "items": []
+  "items": [
+    {
+      "id": "4b0d5f86-0e03-45b8-bbdf-b69b594e8e2f",
+      "item": "K\u00e4se",
+      "flagged": false,
+      "timestamp": "2025-06-22 06:30:07",
+      "source": "Jana"
+    },
+    {
+      "id": "93abe25f-c5fd-4e8f-914b-359ce4b1083c",
+      "item": "Zewa",
+      "flagged": false,
+      "timestamp": "2025-06-26 15:20:10",
+      "source": "Jana"
+    },
+    {
+      "id": "744d7af3-1c78-42c3-9614-531dcfb54028",
+      "item": "",
+      "flagged": false,
+      "timestamp": "2025-06-26 18:21:20",
+      "source": "Jana"
+    },
+    {
+      "id": "57379b93-5d16-458f-b9e5-f533558bbece",
+      "item": "",
+      "flagged": false,
+      "timestamp": "2025-06-26 18:21:23",
+      "source": "Jana"
+    },
+    {
+      "id": "e0538b50-c069-42c2-8059-08e7f786f16d",
+      "item": "Bratw\u00fcrstchen",
+      "flagged": false,
+      "timestamp": "2025-06-26 18:21:35",
+      "source": "Jana"
+    },
+    {
+      "id": "bc49765f-3e14-44d2-aa15-362fbab9e3a5",
+      "item": "Eier",
+      "flagged": false,
+      "timestamp": "2025-06-26 18:21:35",
+      "source": "Jana"
+    },
+    {
+      "id": "6494d47d-bf94-4ba5-a206-8d077162df76",
+      "item": "Sp\u00fcli",
+      "flagged": false,
+      "timestamp": "2025-06-26 18:21:57",
+      "source": "Jana"
+    },
+    {
+      "id": "e5da912a-9764-43a6-8237-3be5c02ff370",
+      "item": "250 g Gummib\u00e4rchen",
+      "flagged": false,
+      "timestamp": "2025-06-27 15:33:22",
+      "source": "Jana"
+    },
+    {
+      "id": "ec32f3ec-e8cd-4f90-9ba3-bc889fe23502",
+      "item": "150 g wei\u00dfe Schokolade",
+      "flagged": false,
+      "timestamp": "2025-06-27 15:33:22",
+      "source": "Jana"
+    },
+    {
+      "id": "cd48be9e-1537-415d-9849-bb056cd5cd06",
+      "item": "Sahne",
+      "flagged": false,
+      "timestamp": "2025-06-27 15:33:22",
+      "source": "Jana"
+    },
+    {
+      "id": "ea1cf20f-2a9b-44e8-b853-79f9f2839b6d",
+      "item": "Eier",
+      "flagged": false,
+      "timestamp": "2025-06-27 15:33:22",
+      "source": "Jana"
+    },
+    {
+      "id": "0d86914a-a121-421d-b4a4-75ac707ccf68",
+      "item": "0,5 l Buttermilch",
+      "flagged": false,
+      "timestamp": "2025-06-27 15:34:03",
+      "source": "Jana"
+    },
+    {
+      "id": "8eece2a1-137d-4c94-b00d-0887574c5419",
+      "item": "Eier",
+      "flagged": false,
+      "timestamp": "2025-06-27 15:34:03",
+      "source": "Jana"
+    },
+    {
+      "id": "301aedb1-6f0b-4cd6-8f64-3825df122b7e",
+      "item": "saure Sahne",
+      "flagged": false,
+      "timestamp": "2025-06-27 15:34:03",
+      "source": "Jana"
+    },
+    {
+      "id": "19a59d89-180e-4d7f-ab4a-c2854c73cef8",
+      "item": "Kokosraspeln",
+      "flagged": false,
+      "timestamp": "2025-06-27 15:35:21",
+      "source": "Jana"
+    },
+    {
+      "id": "46e1d95f-cf88-47a2-b335-5644d51c883c",
+      "item": "Sp\u00fcltabs",
+      "flagged": false,
+      "timestamp": "2025-06-27 17:49:58",
+      "source": "Jana"
+    }
+  ]
 }
